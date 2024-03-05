@@ -16,6 +16,9 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="{{ route('comics.index') }}" class="nav-link">Comics</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('about') }}">About</a>
                                 </li>
                                 <li class="nav-item dropdown">

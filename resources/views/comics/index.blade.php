@@ -32,13 +32,22 @@
                 <tbody>
                   @foreach ($comics as $comic)
                     <tr>
-                        <th scope="row">{{ $comic->id }}</th>
-                        <td>{{ $comic->title }}</td>
-                        <td>$ {{ $comic->price }}</td>
-                        <td>{{ $comic->series }}</td>
-                        <td>{{ $comic->sale_date }}</td>
-                        <td>{{ $comic->type }}</td>
-                        <td><a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary">Vai al Comic</a></td>
+                      <th scope="row">{{ $comic->id }}</th>
+                      <td>{{ $comic->title }}</td>
+                      <td>$ {{ $comic->price }}</td>
+                      <td>{{ $comic->series }}</td>
+                      <td>{{ $comic->sale_date }}</td>
+                      <td>{{ $comic->type }}</td>
+                      <td><a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary">Dettagli</a></td>
+                      <td><a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="btn btn-warning">Modifica</a></td>
+                      <td>
+                        <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="POST" class="d-inline-block">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-danger">Elimina</button>
+                        </form> 
+                      </td>
+
                     </tr>
                   @endforeach
                 </tbody>
